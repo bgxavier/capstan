@@ -95,7 +95,7 @@ func UploadRPM(r *util.Repo, hypervisor string, image string, template *core.Tem
 		Verbose:     verbose,
 		Memory:      size,
 		Networking:  "nat",
-		NatRules:    []nat.Rule{nat.Rule{GuestPort: "10000", HostPort: "10000"}},
+		NatRules:    []nat.Rule{nat.Rule{GuestPort: "20000", HostPort: "20000"}},
 		BackingFile: false,
 	}
 	vm, err := qemu.LaunchVM(vmconfig)
@@ -104,7 +104,7 @@ func UploadRPM(r *util.Repo, hypervisor string, image string, template *core.Tem
 	}
 	defer vm.Process.Kill()
 
-	conn, err := util.ConnectAndWait("tcp", "localhost:10000")
+	conn, err := util.ConnectAndWait("tcp", "localhost:20000")
 	if err != nil {
 		return err
 	}
@@ -176,7 +176,7 @@ func UploadFiles(r *util.Repo, hypervisor string, image string, t *core.Template
 		Verbose:     verbose,
 		Memory:      size,
 		Networking:  "nat",
-		NatRules:    []nat.Rule{nat.Rule{GuestPort: "10000", HostPort: "10000"}},
+		NatRules:    []nat.Rule{nat.Rule{GuestPort: "20000", HostPort: "20000"}},
 		BackingFile: false,
 	}
 	cmd, err := qemu.VMCommand(vmconfig)
@@ -212,7 +212,7 @@ func UploadFiles(r *util.Repo, hypervisor string, image string, t *core.Template
 		go io.Copy(ioutil.Discard, stdout)
 		go io.Copy(ioutil.Discard, stderr)
 	}
-	conn, err := util.ConnectAndWait("tcp", "localhost:10000")
+	conn, err := util.ConnectAndWait("tcp", "localhost:20000")
 	if err != nil {
 		return err
 	}

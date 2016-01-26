@@ -9,11 +9,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/bgxavier/capstan.git/cmd"
-	"github.com/bgxavier/capstan.git/core"
-	"github.com/bgxavier/capstan.git/hypervisor"
-	"github.com/bgxavier/capstan.git/nat"
-	"github.com/bgxavier/capstan.git/util"
+	"github.com/bgxavier/capstan/cmd"
+	"github.com/bgxavier/capstan/core"
+	"github.com/bgxavier/capstan/hypervisor"
+	"github.com/bgxavier/capstan/nat"
+	"github.com/bgxavier/capstan/util"
 	"github.com/codegangsta/cli"
 	"os"
 )
